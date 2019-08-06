@@ -1,0 +1,27 @@
+//Here I have used a stack data structure to reverse the string. As in this problem we have to basically do a LIFO, stack would be an ideal
+//data structure to use.
+
+void Solution::reverseWords(string &A) {
+    // Do not write main() function.
+    // Do not read input, instead use the arguments to the function.
+    // Do not print the output, instead return values as specified
+    // Still have a doubt. Checkout www.interviewbit.com/pages/sample_codes/ for more details
+    
+    stack<string> st;
+    
+    int i=0; string temp = "";
+    while(i<A.size()){
+    
+    while(A[i]==' ' && i<A.size()) i++; //to skip the spaces
+    while(A[i]!=' ' && i<A.size())
+    {
+        temp = temp+A[i]; i++;//to add the words to stack
+    }
+    st.push(temp); temp = ""; 
+    }
+    A.clear(); A = st.top(); st.pop();
+    while(!st.empty())
+        {A = A + " " +st.top(); st.pop();} //as the final output is stored in A itself
+}
+
+#Happy Coding!
