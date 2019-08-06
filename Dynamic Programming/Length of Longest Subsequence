@@ -1,0 +1,46 @@
+//Dynamic Programming is beautiful, one of the most serene and powerful coding ways I have come across. It actually teaches you ways of life
+// that you should remember your past. You should remember the ways to solve your smaller problems and re-use them to solve bigger ones. 
+//OK. Enough!
+//So the solution is simple, you find for each integer what is the longest increasing array before this and you save it for future use. And 
+//you do it both ways. Then add to get the answer. The code is simple and if you need more help - here is a god-send angel to help you through
+// it - https://www.youtube.com/watch?v=CE2b_-XfVDk
+
+PROBLEM AT HAND -   
+
+Given an array of integers, find the length of longest subsequence which is first increasing then decreasing.
+
+**Example: **
+
+For the given array [1 11 2 10 4 5 2 1]
+
+Longest subsequence is [1 2 10 4 2 1]
+
+Return value 6
+
+
+------ANSWER-----
+int Solution::longestSubsequenceLength(const vector<int> &A) {
+    int dpi[A.size()], dpd[A.size()];
+    for(int i=0;i<A.size();i++)
+    { dpi[i] = 1, dpd[i]=1;}
+    
+    for(int i=1;i<A.size();i++)
+    {
+        for(int j=0;j<i;j++)
+            if(A[j]<A[i])
+                dpi[i] = max(dpi[i], dpi[j]+1);
+    }
+    
+    for(int i=A.size()-1;i>=0;i--)
+    {
+        for(int j=A.size()-1;j>i;j--)
+            if(A[j]<A[i])
+                dpd[i] = max(dpd[i], dpd[j]+1);
+    }
+    int sum = 0;
+    for(int i=0;i<A.size();i++)
+    {
+        sum = max(sum, dpi[i]+dpd[i]);
+    }
+    return (sum>0? sum-1 : 0);  
+}
