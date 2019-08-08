@@ -1,0 +1,30 @@
+ //While solving any dp question, the solution starts with asking ourselves what can be smaller problem we are trying to solve. Here form any
+ //step we can either take one step or two steps, how can we write it down? 
+ //we can reach there from one step back or two steps back. So, we can just add them to reach the current step. Then we will need to find how tp
+ //reach those previous steps, hence we need an array for storing that data. 
+QUESTION 
+
+You are climbing a stair case. It takes n steps to reach to the top.
+
+Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+
+Example :
+
+Input : 3
+Return : 3
+
+Steps : [1 1 1], [1 2], [2 1]
+
+
+
+--------ANSWER--------
+
+int Solution::climbStairs(int A) {
+    if(A==0||A==1)
+        return A;
+    int dp[A+1];
+    dp[0] = 0; dp[1] =1; dp[2] = 2;
+    for(int i=3;i<=A;i++)
+        dp[i] = dp[i-1] + dp[i-2];
+    return dp[A];
+}
