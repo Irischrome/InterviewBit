@@ -5,6 +5,10 @@
 //you do it both ways. Then add to get the answer. The code is simple and if you need more help - here is a god-send angel to help you through
 // it - https://www.youtube.com/watch?v=CE2b_-XfVDk
 
+//A problem of DP
+
+
+
 PROBLEM AT HAND -   
 
 Given an array of integers, find the length of longest subsequence which is first increasing then decreasing.
