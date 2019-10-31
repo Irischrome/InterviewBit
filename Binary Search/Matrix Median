@@ -28,7 +28,7 @@ Note: No extra memory is allowed.
 
 
 ----------ANSWER------------
-
+//To find the median in a matrix
 int Solution::findMedian(vector<vector<int> > &A) {
     int r = A.size(), c = A[0].size(), mini  =INT_MAX, maxi = INT_MIN;
     int req = (r*c+1)/2;
