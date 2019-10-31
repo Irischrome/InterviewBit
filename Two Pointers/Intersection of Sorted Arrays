@@ -2,7 +2,7 @@ Problem -
 
 Find the intersection of two sorted arrays.
 OR in other words,
-Given 2 sorted arrays, find all the elements which occur in both the arrays.
+Given 2 sorted arrays, find all the elements which occur in both the arrays or find the repeated elements.
 
 Example :
 
